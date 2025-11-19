@@ -14,20 +14,20 @@ const projects = [
     {
         title: "NiyoPay UPI",
         description: "In-house UPI payment system handling ₹50+ crore monthly transactions. Built using NestJS, Go, and AWS.",
-        tags: ["NestJS", "Golang", "AWS", "UPI"],
-        link: "https://niyo.com"
+        tags: ["Flutter", "NestJS", "Golang", "AWS", "UPI"],
+        link: "https://goniyo.com"
     },
     {
-        title: "Yellow Class",
+        title: "Yellow Class (Now Speakx)",
         description: "Edtech app features including YC Shorts and gamification system leading to 30% organic growth.",
-        tags: ["React Native", "Node.js", "Gamification"],
-        link: "#"
+        tags: ["Flutter", "Node.js", "Gamification"],
+        link: "https://speakx.ai/"
     },
     {
         title: "Gyanshetra",
         description: "Education app developed from scratch to production in 4 months. Managed a team of 4 engineers.",
         tags: ["Mobile Dev", "Team Lead", "Product Launch"],
-        link: "#"
+        link: "https://www.gyanshetra.com/index.php"
     }
 ];
 

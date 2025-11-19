@@ -1,41 +1,128 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-outfit);
-  
-  --color-background: #030014;
-  --color-foreground: #ffffff;
-  
-  --color-primary: #7042f8;
-  --color-secondary: #00f6ff;
-  --color-accent: #ff00e6;
+  --font-sans: var(--font-patrick);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
 :root {
-  --background: #030014;
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #2d2d2d;
+  --primary: #2d2d2d;
+  --secondary: #4a4a4a;
+  --accent: #ffeb3b;
+  --border: #2d2d2d;
+  --input: #2d2d2d;
+  --ring: #2d2d2d;
+}
+
+.dark {
+  --background: #121212;
+  /* Softer, deeper black */
+  --foreground: #e0e0e0;
+  /* Slightly off-white for less harsh contrast */
+  --primary: #e0e0e0;
+  --secondary: #a0a0a0;
+  /* Muted grey for secondary text */
+  --accent: #ffd700;
+  /* Gold/Yellow for highlights */
+  --border: #333333;
+  /* Subtle border */
+  --input: #333333;
+  --ring: #333333;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  background-image: radial-gradient(color-mix(in srgb, var(--secondary), transparent 85%) 1px, transparent 1px);
+  background-size: 20px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Glassmorphism Utilities */
+/* Sketchy Utilities */
+.sketch-border {
+  border: 2px solid var(--border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  background: var(--background);
+  box-shadow: 2px 3px 0px 0px var(--border);
+  transition: all 0.3s ease;
+}
+
+.sketch-border:hover {
+  box-shadow: 4px 5px 0px 0px var(--border);
+  transform: translateY(-2px);
+}
+
+.sketch-button {
+  border: 2px solid var(--border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.sketch-button:hover {
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+}
+
+.text-highlight {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+}
+
+.dark .text-highlight {
+  background: linear-gradient(120deg, #d4b906 0%, #d4b906 100%);
+  /* Darker yellow for contrast */
+}
+
+/* Remove Glassmorphism */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #7042f8, #00f6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
-.bg-gradient-radial {
-  background: radial-gradient(circle, rgba(112,66,248,0.15) 0%, rgba(3,0,20,0) 70%);
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
 }

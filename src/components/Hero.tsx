@@ -41,7 +41,7 @@ export default function Hero() {
                     transition={{ duration: 0.5 }}
                     className="mb-4"
                 >
-                    <span className="py-2 px-4 border-2 border-[#2d2d2d] rounded-[255px_15px_225px_15px/15px_225px_15px_255px] text-[#2d2d2d] font-bold text-sm tracking-wider uppercase bg-white">
+                    <span className="py-2 px-4 border-2 border-border rounded-[255px_15px_225px_15px/15px_225px_15px_255px] text-foreground font-bold text-sm tracking-wider uppercase bg-background">
                         Software Engineer
                     </span>
                 </motion.div>
@@ -50,7 +50,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-5xl md:text-7xl font-bold text-[#2d2d2d] mb-6 tracking-tight"
+                    className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight"
                 >
                     Hi, I&apos;m <span className="text-highlight px-2">Mohammad Asif</span>
                 </motion.h1>
@@ -59,7 +59,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-lg md:text-xl text-[#4a4a4a] max-w-[600px] mb-10 leading-relaxed font-medium"
+                    className="text-lg md:text-xl text-secondary max-w-[600px] mb-10 leading-relaxed font-medium"
                 >
                     Building scalable Web3 & DeFi solutions.
                     <br />
@@ -104,13 +104,13 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.8 }}
                     className="flex gap-6"
                 >
-                    <a href="https://github.com/techieasif" target="_blank" rel="noopener noreferrer" className="text-[#2d2d2d] hover:text-[#4a4a4a] hover:scale-110 transition-all">
+                    <a href="https://github.com/techieasif" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-secondary hover:scale-110 transition-all">
                         <Github className="w-8 h-8" />
                     </a>
-                    <a href="https://www.linkedin.com/in/techieasif" target="_blank" rel="noopener noreferrer" className="text-[#2d2d2d] hover:text-[#4a4a4a] hover:scale-110 transition-all">
+                    <a href="https://www.linkedin.com/in/techieasif" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-secondary hover:scale-110 transition-all">
                         <Linkedin className="w-8 h-8" />
                     </a>
-                    <a href="mailto:techieasif@gmail.com" className="text-[#2d2d2d] hover:text-[#4a4a4a] hover:scale-110 transition-all">
+                    <a href="mailto:techieasif@gmail.com" className="text-foreground hover:text-secondary hover:scale-110 transition-all">
                         <Mail className="w-8 h-8" />
                     </a>
                 </motion.div>

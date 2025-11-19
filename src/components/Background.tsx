@@ -5,74 +5,68 @@ import { motion } from "framer-motion";
 
 export default function Background() {
     return (
-        <div className="fixed top-0 left-0 w-full h-full z-[-1] overflow-hidden pointer-events-none">
-            {/* Paper Texture Overlay */}
-            <div
-                className="absolute inset-0 opacity-[0.4] z-[0] pointer-events-none mix-blend-multiply"
+        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+            {/* Noise Texture */}
+            <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay"
                 style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                 }}
             />
 
-            {/* Pencil Sketches */}
-            <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-                {/* Triangle */}
+            {/* Animated SVG Sketches */}
+            <motion.svg
+                className="absolute top-[10%] left-[5%] w-32 h-32 text-secondary/5"
+                viewBox="0 0 100 100"
+                initial={{ opacity: 0, pathLength: 0 }}
+                animate={{ opacity: 0.5, pathLength: 1 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+            >
                 <motion.path
-                    d="M100,200 L200,400 L0,400 Z"
+                    d="M10 10 L90 10 L50 90 Z"
                     fill="none"
-                    stroke="#2d2d2d"
+                    stroke="currentColor"
                     strokeWidth="2"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
-                    className="absolute top-20 left-20"
-                    style={{ transform: "translate(10%, 10%) rotate(15deg)" }}
+                    strokeDasharray="5 5"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 />
+            </motion.svg>
 
-                {/* Circle */}
+            <motion.svg
+                className="absolute top-[40%] right-[10%] w-48 h-48 text-secondary/5"
+                viewBox="0 0 100 100"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.5 }}
+                transition={{ duration: 1, delay: 0.5 }}
+            >
                 <motion.circle
-                    cx="80%"
-                    cy="20%"
-                    r="100"
+                    cx="50"
+                    cy="50"
+                    r="40"
                     fill="none"
-                    stroke="#2d2d2d"
+                    stroke="currentColor"
                     strokeWidth="2"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 2.5, ease: "easeInOut", delay: 0.5 }}
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 />
+            </motion.svg>
 
-                {/* Squiggle */}
+            <motion.svg
+                className="absolute bottom-[15%] left-[20%] w-40 h-40 text-secondary/5"
+                viewBox="0 0 100 100"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.5 }}
+                transition={{ duration: 1, delay: 1 }}
+            >
                 <motion.path
-                    d="M0,50 Q50,0 100,50 T200,50 T300,50"
+                    d="M10 50 Q 25 25, 50 50 T 90 50"
                     fill="none"
-                    stroke="#2d2d2d"
+                    stroke="currentColor"
                     strokeWidth="2"
-                    initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: 1 }}
-                    transition={{ duration: 3, ease: "easeInOut", delay: 1 }}
-                    style={{ transform: "translate(50%, 50%) scale(2)" }}
+                    animate={{ d: ["M10 50 Q 25 25, 50 50 T 90 50", "M10 50 Q 25 75, 50 50 T 90 50", "M10 50 Q 25 25, 50 50 T 90 50"] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 />
-
-                {/* Grid */}
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2d2d2d" strokeWidth="0.5" opacity="0.3" />
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#grid)" opacity="0.1" />
-            </svg>
-
-            {/* Floating Elements */}
-            <motion.div
-                className="absolute top-[15%] left-[10%] w-16 h-16 border-2 border-dashed border-gray-400 rounded-full"
-                animate={{ y: [0, -20, 0], rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            <motion.div
-                className="absolute bottom-[20%] right-[15%] w-24 h-24 border-2 border-gray-400 transform rotate-45"
-                animate={{ y: [0, 20, 0], rotate: [45, 60, 30, 45] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
+            </motion.svg>
         </div>
     );
 }

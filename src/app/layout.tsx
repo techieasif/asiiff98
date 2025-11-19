@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Patrick_Hand } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 import SmoothScroll from "@/components/SmoothScroll";
 import Background from "@/components/Background";
 
@@ -11,8 +13,8 @@ const patrickHand = Patrick_Hand({
 });
 
 export const metadata: Metadata = {
-  title: "Mohammad Asif | Portfolio",
-  description: "Software Engineer specializing in Web3, DeFi, and Scalable Architecture.",
+  title: "Mohammad Asif | Software Engineer",
+  description: "Portfolio of Mohammad Asif, a Software Engineer specializing in Web3, DeFi, and Scalable Systems.",
 };
 
 export default function RootLayout({
@@ -21,13 +23,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${patrickHand.variable} font-sans antialiased bg-[#ffffff] text-[#2d2d2d] overflow-y-scroll overflow-x-hidden`}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          patrickHand.variable
+        )}
       >
-        <SmoothScroll />
-        <Background />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <SmoothScroll />
+          <Background />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

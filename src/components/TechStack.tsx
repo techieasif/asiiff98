@@ -20,7 +20,7 @@ export default function TechStack() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-[#2d2d2d]"
+                    className="text-3xl md:text-4xl font-bold text-foreground"
                 >
                     Tech <span className="text-highlight px-2">Arsenal</span>
                 </motion.h2>
@@ -31,7 +31,7 @@ export default function TechStack() {
                     {technologies.map((tech, index) => (
                         <span
                             key={index}
-                            className="mx-8 text-4xl md:text-6xl font-bold text-[#2d2d2d]/20 hover:text-[#2d2d2d] transition-colors duration-300 cursor-default"
+                            className="mx-8 text-4xl md:text-6xl font-bold text-secondary/20 hover:text-foreground transition-colors duration-300 cursor-default"
                         >
                             {tech}
                         </span>
@@ -41,7 +41,7 @@ export default function TechStack() {
                     {technologies.map((tech, index) => (
                         <span
                             key={`clone-${index}`}
-                            className="mx-8 text-4xl md:text-6xl font-bold text-[#2d2d2d]/20 hover:text-[#2d2d2d] transition-colors duration-300 cursor-default"
+                            className="mx-8 text-4xl md:text-6xl font-bold text-secondary/20 hover:text-foreground transition-colors duration-300 cursor-default"
                         >
                             {tech}
                         </span>

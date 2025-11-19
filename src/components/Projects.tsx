@@ -28,7 +28,9 @@ const projects = [
         title: "Gyanshetra",
         description: "Education app developed from scratch to production in 4 months. Managed a team of 4 engineers.",
         tags: ["Mobile Dev", "Team Lead", "Product Launch"],
-        link: "https://www.gyanshetra.com/index.php"
+        link: "https://www.gyanshetra.com/index.php",
+        github: "#", // Placeholder for github link
+        icon: null // Placeholder for icon
     }
 ];
 
@@ -41,56 +43,73 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-12 text-center"
+                    className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center"
                 >
                     Featured <span className="text-highlight px-2">Projects</span>
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
-                        <motion.div
+                        <Tilt
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            tiltMaxAngleX={5}
+                            tiltMaxAngleY={5}
+                            scale={1.02}
+                            transitionSpeed={1000}
+                            className="h-full"
                         >
-                            <Tilt
-                                tiltMaxAngleX={5}
-                                tiltMaxAngleY={5}
-                                perspective={1000}
-                                scale={1.02}
-                                transitionSpeed={1000}
-                                className="h-full"
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="sketch-border p-6 h-full flex flex-col justify-between group"
                             >
-                                <div className="sketch-border p-6 h-full flex flex-col group">
+                                <div>
                                     <div className="flex justify-between items-start mb-4">
-                                        <h3 className="text-xl font-bold text-[#2d2d2d] group-hover:text-[#4a4a4a] transition-colors">
-                                            {project.title}
-                                        </h3>
-                                        <div className="flex gap-2">
-                                            {project.link !== "#" && (
-                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#4a4a4a] hover:text-[#2d2d2d] hover:scale-110 transition-all">
-                                                    <ExternalLink className="w-5 h-5" />
-                                                </a>
-                                            )}
+                                        <div className="p-3 rounded-full bg-secondary/10 border border-border/30">
+                                            {project.icon}
+                                        </div>
+                                        <div className="flex gap-3">
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-secondary hover:text-foreground transition-colors"
+                                            >
+                                                <Github className="w-5 h-5" />
+                                            </a>
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-secondary hover:text-foreground transition-colors"
+                                            >
+                                                <ExternalLink className="w-5 h-5" />
+                                            </a>
                                         </div>
                                     </div>
 
-                                    <p className="text-[#4a4a4a] mb-6 text-sm leading-relaxed flex-grow font-medium">
+                                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-secondary mb-6 text-sm leading-relaxed">
                                         {project.description}
                                     </p>
-
-                                    <div className="flex flex-wrap gap-2 mt-auto">
-                                        {project.tags.map((tag, i) => (
-                                            <span key={i} className="text-xs px-2 py-1 rounded-md border-2 border-[#2d2d2d] text-[#2d2d2d] font-bold bg-transparent">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
                                 </div>
-                            </Tilt>
-                        </motion.div>
+
+                                <div className="flex flex-wrap gap-2 mt-auto">
+                                    {project.tags.map((tag, i) => (
+                                        <span
+                                            key={i}
+                                            className="px-2 py-1 text-xs font-bold border-2 border-border text-foreground bg-transparent rounded-md"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        </Tilt>
                     ))}
                 </div>
             </div>

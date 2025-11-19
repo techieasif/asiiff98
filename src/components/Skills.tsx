@@ -20,7 +20,7 @@ export default function Skills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-12 text-center"
+                    className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center"
                 >
                     Technical <span className="text-highlight px-2">Skills</span>
                 </motion.h2>
@@ -33,16 +33,16 @@ export default function Skills() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="sketch-border p-6 hover:bg-[#f9f9f9]"
+                            className="sketch-border p-6 hover:bg-secondary/5"
                         >
-                            <h3 className="text-xl font-bold text-[#2d2d2d] mb-4 border-b-2 border-[#2d2d2d] pb-2 inline-block">
+                            <h3 className="text-xl font-bold text-foreground mb-4 border-b-2 border-border pb-2 inline-block">
                                 {category}
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 {items.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1 text-sm font-medium text-[#4a4a4a] bg-[#f0f0f0] rounded-full border border-[#d1d1d1]"
+                                        className="px-3 py-1 text-sm font-medium text-secondary bg-secondary/10 rounded-full border border-border/30"
                                     >
                                         {skill}
                                     </span>

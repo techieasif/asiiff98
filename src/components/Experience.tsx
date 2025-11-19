@@ -59,14 +59,14 @@ export default function Experience() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-16 text-center"
+                    className="text-3xl md:text-4xl font-bold text-foreground mb-16 text-center"
                 >
                     Professional <span className="text-highlight px-2">Experience</span>
                 </motion.h2>
 
                 <div className="relative">
                     {/* Timeline Line */}
-                    <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-[2px] bg-[#2d2d2d]/20 dashed-line" />
+                    <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-[2px] bg-border/20 dashed-line" />
 
                     <div className="space-y-12">
                         {experiences.map((exp, index) => (
@@ -80,16 +80,16 @@ export default function Experience() {
                                     }`}
                             >
                                 {/* Timeline Dot */}
-                                <div className="absolute left-[-5px] md:left-1/2 transform md:-translate-x-1/2 w-3 h-3 bg-[#2d2d2d] rounded-full border-4 border-white z-10 mt-6" />
+                                <div className="absolute left-[-5px] md:left-1/2 transform md:-translate-x-1/2 w-3 h-3 bg-foreground rounded-full border-4 border-background z-10 mt-6" />
 
                                 {/* Content Card */}
                                 <div className="w-full md:w-1/2 pl-8 md:pl-0">
                                     <div className={`sketch-border p-6 md:p-8 relative ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"
                                         }`}>
-                                        <h3 className="text-xl font-bold text-[#2d2d2d] mb-1">{exp.role}</h3>
-                                        <h4 className="text-lg font-semibold text-[#4a4a4a] mb-4">{exp.company}</h4>
+                                        <h3 className="text-xl font-bold text-foreground mb-1">{exp.role}</h3>
+                                        <h4 className="text-lg font-semibold text-secondary mb-4">{exp.company}</h4>
 
-                                        <div className="flex flex-col gap-2 mb-4 text-sm text-[#4a4a4a]/80 font-medium">
+                                        <div className="flex flex-col gap-2 mb-4 text-sm text-secondary/80 font-medium">
                                             <div className="flex items-center gap-2">
                                                 <Calendar className="w-4 h-4" />
                                                 <span>{exp.period}</span>
@@ -100,7 +100,7 @@ export default function Experience() {
                                             </div>
                                         </div>
 
-                                        <ul className="list-disc list-outside ml-4 space-y-2 text-[#4a4a4a]">
+                                        <ul className="list-disc list-outside ml-4 space-y-2 text-secondary">
                                             {exp.description.map((item, i) => (
                                                 <li key={i} className="leading-relaxed">
                                                     {item}

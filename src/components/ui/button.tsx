@@ -15,7 +15,7 @@ const buttonVariants = cva(
                 ghost: "hover:bg-accent hover:text-accent-foreground rounded-md",
                 link: "text-primary underline-offset-4 hover:underline",
                 sketch: "sketch-button px-6 py-3 text-lg",
-                "sketch-outline": "border-2 border-[#2d2d2d] text-[#2d2d2d] hover:bg-[#2d2d2d] hover:text-white transition-all duration-300 rounded-[255px_15px_225px_15px/15px_225px_15px_255px]",
+                "sketch-outline": "border-2 border-border text-foreground bg-background hover:bg-foreground hover:text-background transition-all duration-300 rounded-[255px_15px_225px_15px/15px_225px_15px_255px] hover:rounded-[15px_225px_15px_255px/255px_15px_225px_15px]",
             },
             size: {
                 default: "h-10 px-4 py-2",

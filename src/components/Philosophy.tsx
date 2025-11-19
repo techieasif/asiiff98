@@ -6,22 +6,22 @@ import { Brain, Rocket, Users, Shield } from "lucide-react";
 
 const philosophies = [
     {
-        icon: <Users className="w-8 h-8 text-purple-400" />,
+        icon: <Users className="w-8 h-8 text-[#2d2d2d]" />,
         title: "User-Centric Design",
         description: "I build with the end-user in mind. Every pixel and interaction is crafted to provide a seamless and delightful experience."
     },
     {
-        icon: <Brain className="w-8 h-8 text-cyan-400" />,
+        icon: <Brain className="w-8 h-8 text-[#2d2d2d]" />,
         title: "Problem Solving",
         description: "I don't just write code; I solve problems. I approach challenges with a first-principles mindset to find the most effective solution."
     },
     {
-        icon: <Rocket className="w-8 h-8 text-pink-400" />,
+        icon: <Rocket className="w-8 h-8 text-[#2d2d2d]" />,
         title: "Scalable Architecture",
         description: "I design systems that can grow. From modular codebases to cloud infrastructure, I ensure long-term maintainability and performance."
     },
     {
-        icon: <Shield className="w-8 h-8 text-green-400" />,
+        icon: <Shield className="w-8 h-8 text-[#2d2d2d]" />,
         title: "Clean Code",
         description: "I believe in writing code that is easy to read, test, and debug. Simplicity is the ultimate sophistication."
     }
@@ -36,9 +36,9 @@ export default function Philosophy() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-white mb-16 text-center"
+                    className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-16 text-center"
                 >
-                    My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Approach</span>
+                    My <span className="text-highlight px-2">Approach</span>
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -49,13 +49,13 @@ export default function Philosophy() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="glass-card p-8 rounded-2xl hover:bg-white/5 transition-colors duration-300 border border-white/5"
+                            className="sketch-border p-8"
                         >
-                            <div className="mb-6 p-4 rounded-full bg-white/5 w-fit border border-white/10">
+                            <div className="mb-6 p-4 rounded-full bg-[#f0f0f0] w-fit border-2 border-[#2d2d2d]">
                                 {item.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
-                            <p className="text-gray-400 leading-relaxed">
+                            <h3 className="text-xl font-bold text-[#2d2d2d] mb-4">{item.title}</h3>
+                            <p className="text-[#4a4a4a] leading-relaxed font-medium">
                                 {item.description}
                             </p>
                         </motion.div>

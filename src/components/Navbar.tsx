@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const navLinks = [
+const navItems = [
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
@@ -13,12 +14,12 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 50);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -26,57 +27,58 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#030014]/50 backdrop-blur-md py-4 shadow-lg" : "bg-transparent py-6"
-                }`}
+            className={cn(
+                "fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4",
+                scrolled ? "bg-white/90 border-b-2 border-[#2d2d2d]" : "bg-transparent"
+            )}
         >
-            <div className="max-w-[1200px] mx-auto px-4 flex justify-between items-center">
-                <a href="#" className="text-2xl font-bold text-white tracking-wider">
-                    ASIF<span className="text-purple-500">.</span>
+            <div className="max-w-[1200px] mx-auto flex justify-between items-center">
+                <a href="#" className="text-2xl font-bold text-[#2d2d2d] tracking-tighter">
+                    Asif<span className="text-highlight">.</span>
                 </a>
 
-                {/* Desktop Menu */}
+                {/* Desktop Nav */}
                 <div className="hidden md:flex gap-8">
-                    {navLinks.map((link) => (
+                    {navItems.map((item) => (
                         <a
-                            key={link.name}
-                            href={link.href}
-                            className="text-gray-300 hover:text-white hover:text-purple-400 transition-colors text-sm font-medium"
+                            key={item.name}
+                            href={item.href}
+                            className="text-[#2d2d2d] hover:text-[#4a4a4a] font-medium text-lg relative group"
                         >
-                            {link.name}
+                            {item.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#2d2d2d] transition-all group-hover:w-full" />
                         </a>
                     ))}
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    className="md:hidden text-[#2d2d2d]"
+                    onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isMobileMenuOpen ? <X /> : <Menu />}
+                    {isOpen ? <X /> : <Menu />}
                 </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Nav */}
             <AnimatePresence>
-                {isMobileMenuOpen && (
+                {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-[#030014]/95 backdrop-blur-xl border-b border-white/10"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="absolute top-full left-0 w-full bg-white border-b-2 border-[#2d2d2d] p-6 md:hidden flex flex-col gap-4 shadow-xl"
                     >
-                        <div className="flex flex-col items-center py-8 gap-6">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-gray-300 hover:text-white text-lg font-medium"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
+                        {navItems.map((item) => (
+                            <a
+                                key={item.name}
+                                href={item.href}
+                                className="text-[#2d2d2d] text-xl font-medium py-2 border-b border-dashed border-gray-300"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item.name}
+                            </a>
+                        ))}
                     </motion.div>
                 )}
             </AnimatePresence>

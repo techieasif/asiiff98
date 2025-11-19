@@ -41,9 +41,9 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-white mb-12 text-center"
+                    className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-12 text-center"
                 >
-                    Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Projects</span>
+                    Featured <span className="text-highlight px-2">Projects</span>
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -56,34 +56,34 @@ export default function Projects() {
                             viewport={{ once: true }}
                         >
                             <Tilt
-                                tiltMaxAngleX={10}
-                                tiltMaxAngleY={10}
+                                tiltMaxAngleX={5}
+                                tiltMaxAngleY={5}
                                 perspective={1000}
-                                scale={1.05}
+                                scale={1.02}
                                 transitionSpeed={1000}
                                 className="h-full"
                             >
-                                <div className="glass-card p-6 rounded-xl group hover:bg-white/10 transition-all duration-300 h-full flex flex-col border border-white/5 hover:border-purple-500/30">
+                                <div className="sketch-border p-6 h-full flex flex-col group">
                                     <div className="flex justify-between items-start mb-4">
-                                        <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                                        <h3 className="text-xl font-bold text-[#2d2d2d] group-hover:text-[#4a4a4a] transition-colors">
                                             {project.title}
                                         </h3>
                                         <div className="flex gap-2">
                                             {project.link !== "#" && (
-                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#4a4a4a] hover:text-[#2d2d2d] hover:scale-110 transition-all">
                                                     <ExternalLink className="w-5 h-5" />
                                                 </a>
                                             )}
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-300 mb-6 text-sm leading-relaxed flex-grow">
+                                    <p className="text-[#4a4a4a] mb-6 text-sm leading-relaxed flex-grow font-medium">
                                         {project.description}
                                     </p>
 
                                     <div className="flex flex-wrap gap-2 mt-auto">
                                         {project.tags.map((tag, i) => (
-                                            <span key={i} className="text-xs px-2 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                                            <span key={i} className="text-xs px-2 py-1 rounded-md border-2 border-[#2d2d2d] text-[#2d2d2d] font-bold bg-transparent">
                                                 {tag}
                                             </span>
                                         ))}

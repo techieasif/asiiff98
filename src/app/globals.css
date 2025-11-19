@@ -1,43 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-outfit);
+  --font-sans: var(--font-patrick);
 
-  --color-background: #030014;
-  --color-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #2d2d2d;
 
-  --color-primary: #7042f8;
-  --color-secondary: #00f6ff;
-  --color-accent: #ff00e6;
+  --color-primary: #2d2d2d;
+  --color-secondary: #4a4a4a;
+  --color-accent: #ffeb3b;
+  /* Highlighter yellow */
 }
 
 :root {
-  --background: #030014;
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #2d2d2d;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* Glassmorphism Utilities */
+/* Sketchy Utilities */
+.sketch-border {
+  border: 2px solid #2d2d2d;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  background: #ffffff;
+  box-shadow: 2px 3px 0px 0px #2d2d2d;
+  transition: all 0.3s ease;
+}
+
+.sketch-border:hover {
+  box-shadow: 4px 5px 0px 0px #2d2d2d;
+  transform: translateY(-2px);
+}
+
+.sketch-button {
+  border: 2px solid #2d2d2d;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  background: #ffffff;
+  color: #2d2d2d;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.sketch-button:hover {
+  background: #2d2d2d;
+  color: #ffffff;
+  border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+}
+
+.text-highlight {
+  background: linear-gradient(120deg, #ffeb3b 0%, #ffeb3b 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%;
+}
+
+/* Remove Glassmorphism */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-
-.text-gradient {
-  background: linear-gradient(to right, #7042f8, #00f6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.bg-gradient-radial {
-  background: radial-gradient(circle, rgba(112, 66, 248, 0.15) 0%, rgba(3, 0, 20, 0) 70%);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
 }
 
 @keyframes marquee {

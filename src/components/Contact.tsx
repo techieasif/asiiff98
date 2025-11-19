@@ -3,56 +3,59 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github } from "lucide-react";
-import { Button } from "./ui/button";
 
 export default function Contact() {
     return (
-        <section id="contact" className="w-full py-20 px-4 bg-[#030014] relative z-[20]">
+        <section id="contact" className="w-full py-20 px-4 relative z-[20]">
             <div className="max-w-[800px] mx-auto text-center">
-                <motion.h2
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-white mb-8"
+                    className="sketch-border p-12"
                 >
-                    Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Connect</span>
-                </motion.h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#2d2d2d] mb-6">
+                        Let&apos;s <span className="text-highlight px-2">Connect</span>
+                    </h2>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-gray-300 text-lg mb-12"
-                >
-                    I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-                </motion.p>
+                    <p className="text-lg text-[#4a4a4a] mb-10 font-medium">
+                        I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                    </p>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="flex flex-col md:flex-row gap-6 justify-center items-center"
-                >
-                    <a href="mailto:techieasif@gmail.com">
-                        <Button variant="premium" size="lg" className="min-w-[200px]">
-                            <Mail className="mr-2 w-5 h-5" />
-                            Say Hello
-                        </Button>
-                    </a>
-
-                    <div className="flex gap-4">
-                        <a href="https://linkedin.com/in/techieasif" target="_blank" rel="noopener noreferrer">
-                            <Button variant="glass" size="icon" className="rounded-full w-12 h-12">
-                                <Linkedin className="w-5 h-5" />
-                            </Button>
+                    <div className="flex justify-center gap-8">
+                        <a
+                            href="mailto:techieasif@gmail.com"
+                            className="flex flex-col items-center gap-2 text-[#2d2d2d] hover:text-[#4a4a4a] hover:scale-110 transition-all group"
+                        >
+                            <div className="p-4 rounded-full bg-[#f0f0f0] border-2 border-[#2d2d2d] group-hover:bg-[#2d2d2d] group-hover:text-white transition-colors">
+                                <Mail className="w-6 h-6" />
+                            </div>
+                            <span className="text-sm font-bold">Email</span>
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                            <Button variant="glass" size="icon" className="rounded-full w-12 h-12">
-                                <Github className="w-5 h-5" />
-                            </Button>
+
+                        <a
+                            href="https://www.linkedin.com/in/techieasif"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-col items-center gap-2 text-[#2d2d2d] hover:text-[#4a4a4a] hover:scale-110 transition-all group"
+                        >
+                            <div className="p-4 rounded-full bg-[#f0f0f0] border-2 border-[#2d2d2d] group-hover:bg-[#2d2d2d] group-hover:text-white transition-colors">
+                                <Linkedin className="w-6 h-6" />
+                            </div>
+                            <span className="text-sm font-bold">LinkedIn</span>
+                        </a>
+
+                        <a
+                            href="https://github.com/techieasif"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-col items-center gap-2 text-[#2d2d2d] hover:text-[#4a4a4a] hover:scale-110 transition-all group"
+                        >
+                            <div className="p-4 rounded-full bg-[#f0f0f0] border-2 border-[#2d2d2d] group-hover:bg-[#2d2d2d] group-hover:text-white transition-colors">
+                                <Github className="w-6 h-6" />
+                            </div>
+                            <span className="text-sm font-bold">GitHub</span>
                         </a>
                     </div>
                 </motion.div>
@@ -62,7 +65,7 @@ export default function Contact() {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="mt-20 text-gray-500 text-sm"
+                    className="mt-20 text-[#4a4a4a] text-sm font-medium"
                 >
                     <p>© {new Date().getFullYear()} Mohammad Asif. All rights reserved.</p>
                 </motion.footer>

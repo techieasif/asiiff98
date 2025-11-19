@@ -29,11 +29,7 @@ export default function Hero() {
 
     return (
         <section className="relative flex flex-col items-center justify-center min-h-screen w-full overflow-hidden bg-[#030014]">
-            {/* Background Effects */}
-            <div className="absolute top-0 left-0 w-full h-full z-[0]">
-                <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[100px] animate-pulse" />
-                <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-cyan-600/30 rounded-full blur-[100px] animate-pulse delay-1000" />
-            </div>
+            {/* Background Effects - Moved to global Background component */}
 
             <div className="relative z-[10] flex flex-col items-center justify-center w-full max-w-[1200px] px-4 text-center">
                 <motion.div

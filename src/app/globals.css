@@ -2,10 +2,10 @@
 
 @theme {
   --font-sans: var(--font-outfit);
-  
+
   --color-background: #030014;
   --color-foreground: #ffffff;
-  
+
   --color-primary: #7042f8;
   --color-secondary: #00f6ff;
   --color-accent: #ff00e6;
@@ -37,5 +37,33 @@ body {
 }
 
 .bg-gradient-radial {
-  background: radial-gradient(circle, rgba(112,66,248,0.15) 0%, rgba(3,0,20,0) 70%);
+  background: radial-gradient(circle, rgba(112, 66, 248, 0.15) 0%, rgba(3, 0, 20, 0) 70%);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
 }

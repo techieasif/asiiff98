@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import Tilt from "react-parallax-tilt";
 
 const projects = [
     {
@@ -33,7 +34,7 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="w-full py-20 px-4 bg-[#030014]">
+        <section id="projects" className="w-full py-20 px-4 relative z-[20]">
             <div className="max-w-[1200px] mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -53,32 +54,42 @@ export default function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="glass-card p-6 rounded-xl group hover:bg-white/10 transition-all duration-300"
                         >
-                            <div className="flex justify-between items-start mb-4">
-                                <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                                    {project.title}
-                                </h3>
-                                <div className="flex gap-2">
-                                    {project.link !== "#" && (
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                                            <ExternalLink className="w-5 h-5" />
-                                        </a>
-                                    )}
+                            <Tilt
+                                tiltMaxAngleX={10}
+                                tiltMaxAngleY={10}
+                                perspective={1000}
+                                scale={1.05}
+                                transitionSpeed={1000}
+                                className="h-full"
+                            >
+                                <div className="glass-card p-6 rounded-xl group hover:bg-white/10 transition-all duration-300 h-full flex flex-col border border-white/5 hover:border-purple-500/30">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <div className="flex gap-2">
+                                            {project.link !== "#" && (
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                                                    <ExternalLink className="w-5 h-5" />
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <p className="text-gray-300 mb-6 text-sm leading-relaxed flex-grow">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        {project.tags.map((tag, i) => (
+                                            <span key={i} className="text-xs px-2 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-
-                            <p className="text-gray-300 mb-6 text-sm leading-relaxed">
-                                {project.description}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 mt-auto">
-                                {project.tags.map((tag, i) => (
-                                    <span key={i} className="text-xs px-2 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                            </Tilt>
                         </motion.div>
                     ))}
                 </div>

@@ -29,24 +29,55 @@ const experiences = [
     },
     {
         company: "Yellow Class",
-        role: "Software Engineer (SDE-1, SDE-2)",
-        period: "Nov 2020 – Jun 2022",
+        role: "Software Engineer 2",
+        period: "Sep 2021 – May 2022",
         location: "Gurugram, Haryana, India",
         description: [
-            "Built YC Shorts (TikTok-like feed) increasing user retention by 40%.",
-            "Developed gamification system (streaks, rewards) driving 30% organic growth.",
-            "Migrated legacy codebase to modern React Native architecture."
+            "Built and improved core features of the Yellow Class edtech app.",
+            "Implemented YC Shorts (short-video format similar to YouTube/Reels).",
+            "Designed and rolled out gamification system → 30% increase in organic growth.",
+            "Built paywall and payment system with Razorpay integration."
         ]
     },
     {
         company: "CBO Infotech",
-        role: "Software Developer",
-        period: "Aug 2019 – Nov 2020",
+        role: "Software Engineer",
+        period: "Dec 2020 – Sep 2021",
         location: "New Delhi, Delhi, India",
         description: [
-            "Developed e-reporting Android app for pharmaceutical field force.",
-            "Implemented offline-first architecture for remote area usage."
+            "Migrated legacy native iOS & Android apps to Flutter in 3 months.",
+            "Solved complex engineering and UI/UX challenges.",
+            "Created server-configurable UI components for dynamic feature toggles (client & employee levels).",
+            "Implemented geo-fencing, offline caching, advanced dashboard, and other high-impact features."
         ]
+    },
+    {
+        company: "Web IT Experts Pvt Ltd.",
+        role: "Software Engineer",
+        period: "Aug 2020 – Dec 2020",
+        location: "Noida, Uttar Pradesh, India",
+        description: [
+            "Developed and maintained features for a social media application.",
+            "Increased user engagement by ~30% through new functionality."
+        ]
+    },
+    {
+        company: "Webloop Infotech",
+        role: "Software Engineer – Mobile",
+        period: "Sep 2019 – Aug 2020",
+        location: "Gurgaon, India",
+        description: [
+            "Led development of Gyanshetra education app from scratch to production in 4 months.",
+            "Managed a team of 4 engineers.",
+            "Delivered full product cycle (design → development, launch) ahead of schedule."
+        ]
+    },
+    {
+        company: "Webloop Infotech",
+        role: "Software Engineer Intern",
+        period: "Jul 2019 – Sep 2019",
+        location: "Gurgaon, Haryana, India",
+        description: []
     }
 ];
 

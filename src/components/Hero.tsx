@@ -4,17 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
-import dynamic from "next/dynamic";
 
-const PDFDownloadLink = dynamic(
-    () => import("@react-pdf/renderer").then((mod) => mod.PDFDownloadLink),
-    {
-        ssr: false,
-        loading: () => <Button variant="sketch-outline">Loading PDF...</Button>,
-    }
-);
 
-import ResumePDF from "./ResumePDF";
+
+
+
 
 export default function Hero() {
     const [isClient, setIsClient] = useState(false);
@@ -82,20 +76,16 @@ export default function Hero() {
                         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
 
-                    {isClient && (
-                        <PDFDownloadLink
-                            document={<ResumePDF />}
-                            fileName="Mohammad_Asif_Resume.pdf"
-                            className="w-full sm:w-auto"
-                        >
-                            {({ loading }) => (
-                                <Button variant="sketch-outline" size="lg" disabled={loading}>
-                                    <Download className="mr-2 w-4 h-4" />
-                                    {loading ? "Generating..." : "Download CV"}
-                                </Button>
-                            )}
-                        </PDFDownloadLink>
-                    )}
+                    <a
+                        href="/Asif_resume_feb_2026.pdf"
+                        download="Asif_resume_feb_2026.pdf"
+                        className="w-full sm:w-auto"
+                    >
+                        <Button variant="sketch-outline" size="lg" className="w-full">
+                            <Download className="mr-2 w-4 h-4" />
+                            Download CV
+                        </Button>
+                    </a>
                 </motion.div>
 
                 <motion.div
